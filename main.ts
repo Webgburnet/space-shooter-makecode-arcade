@@ -14,7 +14,7 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Boulet, function (sprite, otherSp
     info.changeScoreBy(10)
 })
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Bouclier, function (sprite, otherSprite) {
-    otherSprite.setFlag(SpriteFlag.DestroyOnWall, true)
+    otherSprite.destroy(effects.disintegrate, 500)
     sprite.destroy(effects.disintegrate, 500)
     info.changeScoreBy(1000)
 })
@@ -42,7 +42,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         4 4 5 5 2 2 1 1 1 1 2 2 5 5 4 4 
         4 4 5 5 2 2 1 1 1 1 2 2 5 5 4 4 
         `, mySprite, 0, 0)
-    Barriere.setKind(SpriteKind.Vague)
+    Barriere.setKind(SpriteKind.Bouclier)
     music.beamUp.play()
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
